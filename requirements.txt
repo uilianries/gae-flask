@@ -1,2 +1,6 @@
 Flask==0.12.2
 Werkzeug<0.13.0,>=0.12.0
+Flask-SQLAlchemy==2.3.2
+Flask-Migrate==2.1.1
+psycopg2==2.7.4
+gunicorn==19.7.1

@@ -1,11 +1,12 @@
-runtime: python27
-api_version: 1
-threadsafe: true
-automatic_scaling:
-  max_idle_instances: 2
+runtime: python
+env: flex
+entrypoint: gunicorn -b :$PORT main:app
 
-handlers:
-- url: /static
-  static_dir: static
-- url: /.*
-  script: main.app
+runtime_config:
+  python_version: 3
+
+env_variables:
+  SQLALCHEMY_DATABASE_URI: postgresql+psycopg2://postgres:foobar@35.199.87.205/postgres
+
+beta_settings:
+  cloud_sql_instances: flaskapp-195513:southamerica-east1:postgres-flaskapp
