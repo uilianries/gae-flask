@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Submit a form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" type="text/css" href="/static/style.css">
+  </head>
+  <body>
+    <div class="container">
+        <h2>Submit a form</h2>
+          <div id="main">
+            <form method="post" action="{{ url_for('submitted_form') }}">
+              <div class="form-group">
+                  <label for="name">Name:</label>
+                  <input type="text" name="name" id="name" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="email">Email address:</label>
+                <input type="email" name="email" id="email" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="site_url">Website URL:</label>
+                <input type="url" name="site_url" id="site_url" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="comments">Comments:</label>
+                <input type="text" name="comments" id="comments" class="form-control">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+          </div>
+      </div>
+  </body>
+</html>
