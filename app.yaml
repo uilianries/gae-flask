@@ -7,7 +7,7 @@ runtime_config:
 
 env_variables:
   FLASK_APP: main.py
-  SQLALCHEMY_DATABASE_URI: mysql+pymysql://root:foobar@/mysql?unix_socket=/cloudsql/flaskapp-195513:southamerica-east1:mysql-flaskapp
+  SQLALCHEMY_DATABASE_URI: postgresql://postgres:foobar@/postgres?host=/cloudsql/flaskapp-195513:southamerica-east1:postgres-flaskapp
 
 beta_settings:
-  cloud_sql_instances: flaskapp-195513:southamerica-east1:mysql-flaskapp
+  cloud_sql_instances: flaskapp-195513:southamerica-east1:postgres-flaskapp
