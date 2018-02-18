@@ -23,5 +23,8 @@ Just another Google App Engine Flask example
 
 To get more information, visit [here](https://cloud.google.com/appengine/docs/standard/python/getting-started/python-standard-env)
 
+#### NOTE
+* Do not forget to enable [Cloud SQL Admin API](https://console.developers.google.com/apis/api/sqladmin.googleapis.com/overview)
+
 #### LICENSE
 [MIT](LICENSE)
