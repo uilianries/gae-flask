@@ -12,9 +12,6 @@ migrate = Migrate(app, db)
 
 import models
 
-db.drop_all()
-db.create_all()
-
 @app.route('/')
 @app.route('/form')
 def form():
