@@ -13,7 +13,6 @@ from flask_uploads import UploadSet, IMAGES, configure_uploads
 from flask_pagedown import PageDown
 from flask_migrate import Migrate
 from flask_httpauth import HTTPBasicAuth
-from flask_sessionstore import Session
 
 
 ################
@@ -22,7 +21,6 @@ from flask_sessionstore import Session
 
 app = Flask(__name__, instance_relative_config=True)
 app.config.from_pyfile('config.py')
-Session(app)
 
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
