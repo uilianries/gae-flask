@@ -19,6 +19,7 @@ Flask-PageDown==0.2.1
 Flask-Script==2.0.5
 Flask-Uploads==0.2.1
 Flask-WTF==0.12
+Flask-Sessionstore==0.4.5
 html5lib==0.9999999
 httplib2==0.10.3
 itsdangerous==0.24
