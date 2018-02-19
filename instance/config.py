@@ -29,6 +29,3 @@ UPLOADS_DEFAULT_URL = 'http://localhost:5000/static/img/'
 
 UPLOADED_IMAGES_DEST = TOP_LEVEL_DIR + '/app/static/img/'
 UPLOADED_IMAGES_URL = 'http://localhost:5000/static/img/'
-
-PERMANENT_SESSION_LIFETIME = 3600
-SESSION_TYPE = 'memcached'
