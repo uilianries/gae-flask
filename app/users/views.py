@@ -5,7 +5,7 @@
 #### imports ####
 #################
 
-from flask import render_template, Blueprint, request, redirect, url_for, flash, abort
+from flask import render_template, Blueprint, request, redirect, url_for, flash, abort, session
 from sqlalchemy.exc import IntegrityError
 from flask_login import login_user, current_user, login_required, logout_user
 from flask_mail import Message
@@ -96,6 +96,7 @@ def register():
                 db.session.commit()
                 login_user(new_user)
                 flash('Thanks for registering!', 'success')
+                session['user'] = form.email.data
                 return redirect(url_for('recipes.user_recipes', recipe_type='All'))
             except IntegrityError:
                 db.session.rollback()
@@ -116,6 +117,7 @@ def login():
                 db.session.add(user)
                 db.session.commit()
                 login_user(user)
+                session['user'] = form.email.data
                 flash('Thanks for logging in, {}'.format(current_user.email))
                 return redirect(url_for('recipes.user_recipes', recipe_type='All'))
             else:
@@ -131,6 +133,7 @@ def logout():
     db.session.add(user)
     db.session.commit()
     logout_user()
+    del session['user']
     flash('Goodbye!', 'info')
     return redirect(url_for('users.login'))
 
