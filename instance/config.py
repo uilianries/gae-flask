@@ -12,9 +12,9 @@ TOP_LEVEL_DIR = os.path.abspath(os.curdir)
 
 # Update later by using a random number generator and moving
 # the actual key outside of the source code under version control
-SECRET_KEY = 'secret_key'
+SECRET_KEY = 'cUyf7aIXbpPKZ3Uxcic139jc0K4t82YZ'
 WTF_CSRF_ENABLED = True
-DEBUG = True
+DEBUG = False
 
 # SQLAlchemy
 SQLALCHEMY_DATABASE_URI = os.getenv("SQLALCHEMY_DATABASE_URI")

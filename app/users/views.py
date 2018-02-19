@@ -12,6 +12,7 @@ from flask_mail import Message
 from threading import Thread
 from itsdangerous import URLSafeTimedSerializer
 from datetime import datetime
+from google.appengine.api import memcache
 
 from .forms import RegisterForm, LoginForm, EmailForm, PasswordForm
 from app import db, mail, app
@@ -95,6 +96,7 @@ def register():
                 db.session.add(new_user)
                 db.session.commit()
                 login_user(new_user)
+                memcache.add('user', form.email.data)
                 flash('Thanks for registering!', 'success')
                 return redirect(url_for('recipes.user_recipes', recipe_type='All'))
             except IntegrityError:
@@ -116,6 +118,7 @@ def login():
                 db.session.add(user)
                 db.session.commit()
                 login_user(user)
+                memcache.add('user', form.email.data)
                 flash('Thanks for logging in, {}'.format(current_user.email))
                 return redirect(url_for('recipes.user_recipes', recipe_type='All'))
             else:
@@ -131,6 +134,7 @@ def logout():
     db.session.add(user)
     db.session.commit()
     logout_user()
+    memcache.delete('user')
     flash('Goodbye!', 'info')
     return redirect(url_for('users.login'))
 
